@@ -1,18 +1,25 @@
-import React from 'react';
+import "./App.css";
+import { Outlet } from "react-router-dom";
+import { App } from "antd";
+import TopHeader from "./components/Layout/Header/TopHeader";
+import PageFooter from "./components/Layout/Footer/PageFooter";
+import { Layout } from "antd";
+const { Content } = Layout;
 
-function App() {
+export default function Root() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <App className="app">
+      <Layout>
+        <TopHeader />
+        <Content
+          style={{
+            padding: "45px 48px",
+          }}
+        >
+          <Outlet />
+        </Content>
+        <PageFooter />
+      </Layout>
+    </App>
   );
 }
-
-export default App;
